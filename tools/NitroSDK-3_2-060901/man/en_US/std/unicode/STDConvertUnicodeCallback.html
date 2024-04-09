@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 8.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>STDConvertUnicodeCallback</title>
+<LINK rel="stylesheet" href="../../css/nitro.css" type="text/css">
+</head>
+
+<body>
+
+<h1 align="left">STDConvertUnicodeCallback</h1>
+
+<h2>Definitions</h2>
+
+<dl>
+  <dd>
+<CODE>#include &lt;nitro/std.h&gt;</CODE><BR>
+<PRE><CODE>typedef <a href="STDResult.html">STDResult</a> (*STDConvertUnicodeCallback) (u16 *dst, int *dst_len, const char *src, int *src_len);</CODE></PRE>
+  </dd>
+
+</dl><h2>Arguments</h2>
+<TABLE border="1" width="100%">
+  <TBODY>
+    <TR>
+<TD width="30%"><em><strong>dst</strong></em></TD>
+<TD width="70%">Pointer to the location storing the converted Unicode character.</TD>
+    </TR>
+    <TR>
+<TD width="30%"><em><strong>dst_len</strong></em></TD>
+<TD width="70%">Passing the maximum number of characters that can be stored in the conversion destination buffer, this pointer returns the number of characters actually stored.<br>Be sure to note that the number of characters does not give the byte size.<br></TD>
+    </TR>
+    <TR>
+<TD width="30%"><em><strong>src</strong></em></TD>
+<TD width="70%">Pointer to the location where conversion of the ShiftJIS character string failed.</TD>
+    </TR>
+    <TR>
+<TD width="30%"><em><strong>srclen</strong></em></TD>
+<TD width="70%">Accepting the remaining unconverted byte size pointed to by src, this pointer returns the byte size actually required for conversion.</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+
+<h2>Return Values</h2>
+<p>Returns <a href="STDResult.html">STD_RESULT_SUCCESS</a> if conversion succeeds; otherwise, returns <a href="STDResult.html">STD_RESULT_CONVERSION_FAILED</a>.<br>Be sure to store the number of characters actually used in conversion in the argumens dst_len and src_len, respectively.</p>
+
+<H2>Description</H2>
+<P>
+This is the type of callback function set by <A href="STD_ConvertStringSjisToUnicode.html"><CODE>STD_ConvertStringSjisToUnicode</CODE></A>. <BR>This callback is called every time a character that cannot be converted by the function<A href="STD_ConvertStringSjisToUnicode.html"><CODE>STD_ConvertStringSjisToUnicode</CODE></A> is detected. Conversion processing can be freely defined here.<BR><br>A four-character array is always guaranteed for dst. Be sure to store characters that result from conversion here. A NULL terminator does not need to be added.<br>Be sure to store the byte size for one character's worth of src to be read for conversion in srclen. If the result of conversion is two or more characters and either src or dst exceed the end of the buffer, the results of conversion will be ignored and it will be treated as if the end of buffer has been reached.<br>
+</P>
+
+<h2>See Also</h2>
+<p>
+<a href="STDResult.html">STDResult</a><br> <A href="STD_ConvertStringSjisToUnicode.html">STD_ConvertStringSjisToUnicode</A>
+</p>
+
+<H2>Revision History</H2>
+<P>
+08/10/2006 Changed the interface.<br>07/24/2006 Changed the interface. Added a description regarding restrictions on return values.<br>07/05/2006 Initial version.
+</P>
+<hr>
+<P>CONFIDENTIAL</P>
+</BODY>
+</HTML>

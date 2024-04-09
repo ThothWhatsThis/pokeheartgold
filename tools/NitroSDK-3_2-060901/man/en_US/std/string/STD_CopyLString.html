@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 8.0.2.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>STD_CopyLString</title>
+<LINK rel="stylesheet" href="../../css/nitro.css" type="text/css">
+</head>
+
+<body>
+
+<h1 align="left">STD_CopyLString</h1>
+<h2>C Specification</h2>
+<dl>
+<dd><PRE><CODE>#include &lt;nitro/std.h&gt;
+
+int STD_CopyLString( char* destp, const char* srcp, int siz );</CODE></PRE>
+<PRE><CODE>int STD_StrLCpy( char* destp, const char* srcp, int siz );
+</CODE></PRE></dd>
+</dl>
+
+<h2>Arguments</h2>
+<table border="1" width="100%">
+  <tbody>
+    <TR>
+<TD width="200"><EM><STRONG><FONT face="Courier New">destp</FONT></STRONG></EM></TD>
+<TD width="800">Specifies the copy destination pointer.</TD>
+    </TR>
+    <TR>
+<TD width="200"><EM><STRONG><FONT face="Courier New">srcp</FONT></STRONG></EM></TD>
+<TD width="800">Specifies the copy source pointer.</TD>
+    </TR>
+    <TR>
+<TD width="200"><EM><STRONG><FONT face="Courier New">siz</FONT></STRONG></EM></TD>
+<TD width="800">Designates the write buffer size of the copy destination.</TD>
+    </TR>
+  </tbody>
+</table>
+
+<h2>Return Values</h2>
+<p>
+Returns the character string length of the copy source.
+</p>
+
+<H2>Description</H2>
+<P>
+Copies a maximum of (n-1) characters from string srcp to string destp. This function operates in the same way as the general function strlcpy().
+<P><CODE>STD_StrLCpy()</CODE> is defined as another name for <CODE>STD_CopyLString()</CODE>.</P>
+
+<h2>See Also</h2>
+<p><CODE><A href="STD_CopyString.html">STD_CopyString</A>,<A href="STD_CopyLStringZeroFill.html">STD_CopyLStringZeroFill</A></CODE></p>
+
+<H2>Revision History</H2>
+<P>
+06/06/2006 Made changes to the function specification so that it conforms to strlcpy()<BR>05/15/2006 Revised the description<BR>10/05/2005 Initial version<BR>
+</P>
+<hr>
+<P>CONFIDENTIAL</P>
+</BODY>
+</HTML>

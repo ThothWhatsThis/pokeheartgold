@@ -1,0 +1,60 @@
+#! make -f
+#----------------------------------------------------------------------------
+# Project:  Project:  NitroSDK - MB - demos - multiboot-wfs
+# File:     make_common
+#
+# Copyright 2005 Nintendo.  All rights reserved.
+#
+# These coded instructions, statements, and computer programs contain
+# proprietary information of Nintendo of America Inc. and/or Nintendo
+# Company Ltd., and are protected by Federal copyright law.  They may
+# not be disclosed to third parties or copied or duplicated in any form,
+# in whole or in part, without the prior written consent of Nintendo.
+#
+# $Log: make_common,v $
+# Revision 1.1  06/23/2005 09:05:22  yosizaki
+# initial upload.
+#
+# $NoKeywords: $
+#----------------------------------------------------------------------------
+
+
+
+# Because the MB library samples use the multiboot functionality, 
+# development tools with the same communications environment (wired or wireless) are required.  
+# The mb_child.bin program in the  
+# $NitroSDK/bin/ARM9-TS/Release/ directory provides features equivalent to 
+# is a sample that provides the same functionality as a multiboot child on the DS system. 
+# Load this binary on the other tools as you would as demo program, 
+# and execute it at the same time. 
+
+
+#----------------------------------------------------------------------------
+
+
+NITRO_MAKEROM	=	TRUE
+NITRO_DIGEST	=	TRUE
+
+TARGET_BIN		=	main.srl
+LCFILE_SPEC		=	main.lsf
+
+SRCDIR			=	../common/src ./src
+INCDIR			=	../common/include ./include
+
+# Demo application framework
+SRCS			=	common.c util.c font.c
+
+# Moved the wc module to wireless_shared. 
+WC_DIR			=	$(ROOT)/build/demos/wireless_shared/wc
+SRCS			+=	$(WC_DIR)/wc.c
+LINCLUDES		=	$(WC_DIR)
+
+# Moved the wireless file system (WFS) module to wireless_shared.
+WFS_DIR			=	$(ROOT)/build/demos/wireless_shared/wfs
+SRCS			+=	$(WFS_DIR)/src/wfs_common.c	\
+					$(WFS_DIR)/src/wfs_archive.c	\
+					$(WFS_DIR)/src/wfs_thread.c
+LINCLUDES		+=	$(WFS_DIR)/include
+
+
+#===== End of make_common =====

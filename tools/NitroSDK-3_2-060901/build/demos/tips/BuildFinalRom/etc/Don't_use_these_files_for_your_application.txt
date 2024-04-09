@@ -1,0 +1,7 @@
+---------------------------------------------------------------------
+The libsyscall.a and rom_header.template.sbin in this directory are demonstration samples. 
+
+Please request your own copy of libsyscall.a and rom_header.template.sbin from the Nintendo support team.
+
+Thanks.
+---------------------------------------------------------------------

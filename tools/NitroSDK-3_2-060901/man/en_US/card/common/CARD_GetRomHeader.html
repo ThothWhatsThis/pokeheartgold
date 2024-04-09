@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 7.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<title>CARD_GetRomHeader</title>
+<LINK rel="stylesheet" href="../../css/nitro.css" type="text/css">
+</head>
+
+<body>
+
+<h1 align="left">CARD_GetRomHeader</h1>
+<h2>C Specification</h2>
+
+<dl>
+  <dd>
+<CODE>#include &lt;nitro/card.h&gt;</CODE><BR> <BR> <CODE>const u8* CARD_GetRomHeader(void);</CODE><br> <br>
+  </dd>
+</dl>
+<h2>Arguments</h2>
+<p>None.</p>
+
+<h2>Return Values</h2>
+<p>Returns the pointer to the buffer storing the information that is registered in the ROM of the inserted NITRO-CARD. This pointer can be cast as the pointer to the <a href="../card_rom_header_type.html">CARDRomHeader</a> structure.<br>The contents of this buffer cannot be changed.</p>
+
+<H2>Description</H2>
+<P>Gets the information registered in the ROM of the NITRO-CARD inserted in the NITRO hardware This function lets a program that booted from a wireless download identify the contents of the NITRO-CARD inserted in the parent. Normally, the information retrieved by calling this function is the same as that stored for the program itself at the <code>HW_ROM_HEADER_BUF</code> address<br> <font color="red">Note that correct information can be obtained only with the actual production Nintendo DS console. It will not work with IS-NITRO-EMULATOR.</font>
+</P>
+<H2>Revision History</H2>
+<P>
+08/25/2006 Added note that correct information can be obtained only with production console.<BR>06/22/2006 Added note that the return value may be cast to CARDRomHeader structure.<BR>10/18/2004 Initial version.<BR>
+</P>
+<hr>
+<P>CONFIDENTIAL</P>
+</BODY>
+</HTML>
